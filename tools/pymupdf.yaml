@@ -13,7 +13,25 @@ description:
   llm: PyMuPDF is a high performance Python library for data extraction, analysis, conversion &amp; manipulation of PDF (and other) documents
 parameters:
   - name: files
-    type: files
+    type: array
+    items:
+      type: object
+      properties:
+        dify_model_identity:
+          type: string
+          description: Optional; if "__dify__file__", the object is a native Dify File.
+        url:
+          type: string
+          description: Absolute URL to the file
+        remote_url:
+          type: string
+          description: Absolute URL to the file (alternate key)
+        filename:
+          type: string
+        mime_type:
+          type: string
+        size:
+          type: integer
     required: false 
     label:
       en_US: Files
